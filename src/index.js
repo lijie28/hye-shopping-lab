@@ -12,6 +12,7 @@ const data = {};
 (() => {
 	data.session_id = generateUID();
 	data.version = '';
+	data.mouse_move = [];
 	for(let i = 0; i < 3; i++) {
 		data.version += products[i] + '' + prices[i];
 	}

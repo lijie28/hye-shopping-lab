@@ -27,6 +27,18 @@ class App extends Component {
     })
   }
 
+	getMousePos = (event) => {
+		var e = event || window.event;
+		var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+		var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+		var x = e.pageX || e.clientX + scrollX;
+		var y = e.pageY || e.clientY + scrollY;
+    var timestamp = Date.now();
+		const eventKey = 'mouse_move';
+    const data = this.props.data;
+    data[eventKey].push(`${timestamp},${x},${y}`);
+		console.log(`${timestamp}, x: ${x} y: ${y}`)
+	}
 
   render() {
     const data = this.props.data;
@@ -95,6 +107,7 @@ class App extends Component {
       </Row>
     )
     return (
+      <html onMouseMove={this.getMousePos}>
       <Layout>
         <Header className='shopping-header'>
           <a to="/" onClick={this.backToMainPage}>
@@ -128,6 +141,7 @@ class App extends Component {
           </Layout>
         </Layout>
       </Layout>
+      </html>
     );
   }
 }
