@@ -1,5 +1,5 @@
 # Hye
-Frontend: [https://shopping-hye.github.io](https://shopping-hye.github.io).
+Frontend: [https://lijie28.github.io/hye-shopping/](https://lijie28.github.io/hye-shopping/).
 
 Backend: [https://j3uvhhijq0.execute-api.us-east-1.amazonaws.com/api/hye](https://j3uvhhijq0.execute-api.us-east-1.amazonaws.com/api/hye).
 
