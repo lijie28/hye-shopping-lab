@@ -15,7 +15,7 @@ export class ProductDetails extends React.Component {
 		}
 	}
 
-	checkout= () => {
+	checkout = () => {
 		this.setState({
 			modalVisible: true
 		});
@@ -24,7 +24,7 @@ export class ProductDetails extends React.Component {
 		data.checkout_item = products[index] + '' + prices[index];
 		// save to api
 		console.log(`Submitting the data: ${JSON.stringify(data, null, 2)}`);
-		post(data, true).then(res => {}).catch(err => {
+		post(data, true).then(res => { }).catch(err => {
 			console.log('failed to save the data', err)
 		});
 	}
@@ -90,13 +90,13 @@ export class ProductDetails extends React.Component {
 			<Row gutter={[16, 16]}>
 				<Col span={8}>
 					<Image onMouseEnter={this.handleMouseMoveDetailsImage}
-								 onMouseLeave={this.handleMouseMoveDetailsImage}
-								 src={productImageUri}
-								 preview={false}/>
+						onMouseLeave={this.handleMouseMoveDetailsImage}
+						src={productImageUri}
+						preview={false} />
 				</Col>
 				<Col span={16}>
 					<div onMouseEnter={this.handleMouseMoveDetailsTitleDescription}
-							 onMouseLeave={this.handleMouseMoveDetailsTitleDescription}>
+						onMouseLeave={this.handleMouseMoveDetailsTitleDescription}>
 						<h1 style={{
 							fontSize: '40px',
 							fontWeight: 'bold'
@@ -115,7 +115,7 @@ export class ProductDetails extends React.Component {
 								height: '150px',
 								width: '400px'
 							}}
-							src={priceImageUri}/>
+							src={priceImageUri} />
 					</div>
 					<Space>
 						<a>
@@ -128,7 +128,7 @@ export class ProductDetails extends React.Component {
 							visible={this.state.modalVisible}
 							onOk={() => this.copyTestingId()}
 							closable={false}
-							cancelButtonProps={{disabled: true}}
+							cancelButtonProps={{ disabled: true }}
 							okText={this.state.okText}
 						>
 							<p>
