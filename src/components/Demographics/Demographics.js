@@ -14,6 +14,7 @@ export class Demographics extends React.Component {
             gender: null,
             okText: 'confirm',
             age: null,
+            testInfo: ''
         };
     }
 
@@ -51,14 +52,28 @@ export class Demographics extends React.Component {
     confirm = () => {
         const reg = /^[0-9]*$/;
         if (reg.test(this.state.age)) {
-            this.setState({
-                modalVisible: true
-            })
+            this.saveToApi()
         } else {
             this.setState({
                 warning: true
             })
         }
+    }
+
+    saveToApi = () => {
+        console.log('saveToApi')
+        const { data } = this.props;
+        data['gender'] = `${this.state.gender}`;
+        data['age'] = `${this.state.age}`;
+        console.log(`Submitting the data: ${JSON.stringify(data, null, 2)}`);
+
+        this.setState({
+            // modalVisible: true
+            testInfo: `${JSON.stringify(data, null, 2)}`
+        })
+        // post(data, true).then(res => { }).catch(err => {
+        //     console.log('failed to save the data', err)
+        // });
     }
 
     amazonClick
@@ -70,16 +85,16 @@ export class Demographics extends React.Component {
                     What is your gender?
                 </div>
 
-                <Checkbox checked={this.state.gender == 0} onChange={this.genderOnChange} tabIndex={0}>Male
+                <Checkbox checked={this.state.gender === 0} onChange={this.genderOnChange} tabIndex={0}>Male
                 </Checkbox>
 
-                <Checkbox checked={this.state.gender == 1} onChange={this.genderOnChange} tabIndex={1}>Female
+                <Checkbox checked={this.state.gender === 1} onChange={this.genderOnChange} tabIndex={1}>Female
                 </Checkbox>
 
-                <Checkbox checked={this.state.gender == 2} onChange={this.genderOnChange} tabIndex={2}>No-binary / third gender
+                <Checkbox checked={this.state.gender === 2} onChange={this.genderOnChange} tabIndex={2}>No-binary / third gender
                 </Checkbox>
 
-                <Checkbox checked={this.state.gender == 3} onChange={this.genderOnChange} tabIndex={3}>Prefer not to say
+                <Checkbox checked={this.state.gender === 3} onChange={this.genderOnChange} tabIndex={3}>Prefer not to say
                 </Checkbox>
 
                 <div>
@@ -111,6 +126,9 @@ export class Demographics extends React.Component {
                     ]}
                 >Please enter your age in numbers
                 </Modal>
+                <br />
+                <p>{this.state.testInfo}</p>
+                <br />
             </div>
         )
     }
