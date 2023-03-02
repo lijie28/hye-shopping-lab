@@ -2,12 +2,17 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Button } from 'antd';
 import './Welcome.css';
+import ShowPage from '../../App';
 // import { getProductImageUri, getPriceImageUri } from '../utils'
 // import { products as productsConfig } from '../../product_config.json';
 
 // const { Meta } = Card;
 
 export class Welcome extends React.Component {
+
+    // nextPage() {
+    //     this.props.setShowPage(ShowPage.warmUp)
+    // }
 
     render() {
         return (
@@ -26,7 +31,7 @@ export class Welcome extends React.Component {
                     When you are ready, proceed to the next page.
                 </div>
 
-                <Button size="large" type="primary" onClick={this.props.skipWelcome}>Proceed</Button>
+                <Button size="large" type="primary" onClick={this.props.nextPage}>Proceed</Button>
             </div>
         )
     }

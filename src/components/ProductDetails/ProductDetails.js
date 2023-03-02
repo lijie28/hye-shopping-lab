@@ -11,7 +11,8 @@ export class ProductDetails extends React.Component {
 		super(props);
 		this.state = {
 			modalVisible: false,
-			okText: 'Copy Testing ID'
+			cancelText: 'Back',
+			okText: 'Confirm'
 		}
 	}
 
@@ -19,7 +20,10 @@ export class ProductDetails extends React.Component {
 		this.setState({
 			modalVisible: true
 		});
+		// TODO: this.saveToApi
+	}
 
+	saveToApi = () => {
 		const { data, index, products, prices } = this.props;
 		data.checkout_item = products[index] + '' + prices[index];
 		// save to api
@@ -37,6 +41,10 @@ export class ProductDetails extends React.Component {
 		this.setState({
 			okText: 'Copied!'
 		})
+	}
+
+	buyConfirm = () => {
+		this.props.nextPage();
 	}
 
 	handleMouseMoveDetailsImage = (event) => {
@@ -123,6 +131,23 @@ export class ProductDetails extends React.Component {
 						</a>
 						<Button size="large" type="primary" onClick={this.checkout}>Checkout</Button>
 						<Modal
+							title=" "
+							centered
+							visible={this.state.modalVisible}
+							onOk={this.props.nextPage}
+							onCancel={() =>
+								this.setState({
+									modalVisible: false
+								})}
+							okText={this.state.okText}
+							cancelText={this.state.cancelText}
+						>
+							<p>
+								<strong>I would want to buy this product</strong>
+								<br />
+							</p>
+						</Modal>
+						{/* <Modal
 							title="Your response have been saved!"
 							centered
 							visible={this.state.modalVisible}
@@ -135,7 +160,7 @@ export class ProductDetails extends React.Component {
 								Click the button to copy your testing ID and enter it back in the Qualtrics. Your testing ID is: <strong>{data.version + data.session_id}</strong>
 								<br />Then you can close this window.
 							</p>
-						</Modal>
+						</Modal> */}
 					</Space>
 				</Col>
 			</Row>
