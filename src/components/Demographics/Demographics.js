@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Button, Checkbox, Modal } from 'antd';
+import { Button, Checkbox, Modal, Input } from 'antd';
 import './Demographics.css';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
@@ -10,8 +10,10 @@ export class Demographics extends React.Component {
         super(props);
         this.state = {
             modalVisible: false,
+            warning: false,
             gender: null,
-            okText: 'confirm'
+            okText: 'confirm',
+            age: null,
         };
     }
 
@@ -32,10 +34,31 @@ export class Demographics extends React.Component {
         })
     };
 
-    confirm = () => {
+    ageOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value: inputValue } = e.target;
         this.setState({
-            modalVisible: true
+            age: inputValue
         })
+        console.log(inputValue)
+    };
+
+    handleOk = () => {
+        this.setState({
+            warning: false
+        })
+    };
+
+    confirm = () => {
+        const reg = /^[0-9]*$/;
+        if (reg.test(this.state.age)) {
+            this.setState({
+                modalVisible: true
+            })
+        } else {
+            this.setState({
+                warning: true
+            })
+        }
     }
 
     amazonClick
@@ -62,8 +85,10 @@ export class Demographics extends React.Component {
                 <div>
                     What is your age? (please enter numbers only)
                 </div>
+                <Input onChange={this.ageOnChange}></Input>
+
                 <br />
-                {(this.state.gender == null) ? <Button size="large" type="primary" disabled>Proceed</Button> : <Button size="large" type="primary" onClick={this.confirm}>Proceed</Button>}
+                {(this.state.gender == null || this.state.age == null) ? <Button size="large" type="primary" disabled>Proceed</Button> : <Button size="large" type="primary" onClick={this.confirm}>Proceed</Button>}
                 <Modal
                     title="Your response have been saved!"
                     centered
@@ -77,6 +102,14 @@ export class Demographics extends React.Component {
                         Click the button to copy your testing ID and enter it back in the Qualtrics. Your testing ID is: <strong>{data.version + data.session_id}</strong>
                         <br />Then you can close this window.
                     </p>
+                </Modal>
+                <Modal
+                    visible={this.state.warning}
+                    onCancel={this.handleOk}
+                    footer={[
+                        <Button type="primary" key="submit" onClick={this.handleOk}>ok</Button>
+                    ]}
+                >Please enter your age in numbers
                 </Modal>
             </div>
         )
