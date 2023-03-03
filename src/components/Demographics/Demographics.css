@@ -12,8 +12,8 @@
 
 .mainArea {
     text-align: center;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     border: 3px solid rgb(35, 134, 233);
     padding: 10px;
     margin: auto;
@@ -26,10 +26,11 @@
     /* align-content: space-between; */
 }
 
-.mainText {
-    text-align: center;
+.main-text {
+    text-align: left;
     height: 80%;
-    padding: 10px;
+    width: 50%;
+    padding: 20px;
     margin: auto;
     position: absolute;
     top: 0;

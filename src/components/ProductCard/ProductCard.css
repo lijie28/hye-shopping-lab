@@ -1,3 +1,24 @@
 .product-card {
     border: 1px ridge #bfbfbf;
 }
+
+.centerCard {
+    /* width: 200px; */
+    align-items: center;
+}
+
+.centerBox {
+    /* width: 200px; */
+    align-items: center;
+    height: 70px;
+}
+
+.centerText {
+    /* width: 200px; */
+    text-align: center;
+    height: 70px;
+}
+
+.centerImg {
+    width: 250px;
+}

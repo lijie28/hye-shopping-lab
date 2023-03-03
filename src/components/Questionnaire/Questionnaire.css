@@ -1,11 +1,7 @@
-.product-card {
-    border: 1px ridge #bfbfbf;
-}
-
 .mainArea {
     text-align: center;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     border: 3px solid rgb(35, 134, 233);
     padding: 10px;
     margin: auto;
@@ -15,20 +11,6 @@
     right: 0;
     bottom: 0;
     /* align-content: stretch; */
-    /* align-content: space-between; */
-}
-
-.mainText {
-    text-align: center;
-    height: 80%;
-    padding: 10px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* align-content: flex-end; */
     /* align-content: space-between; */
 }
 
@@ -42,8 +24,4 @@
     bottom: 0;
     height: 90%; */
     float: right;
-}
-
-.mainText {
-    font-size: 50;
 }
