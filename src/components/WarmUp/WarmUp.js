@@ -53,7 +53,7 @@ export class WarmUp extends React.Component {
                         <br />
                         <br />Amazon
                         <br />Target
-                        <br />BestBuyScore
+                        <br />BestBuy
                     </div>
                 </Space>
                 <Space>
