@@ -98,13 +98,13 @@ export class WarmUp extends React.Component {
                                     Amazon
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 0} onChange={this.amazonOnChange} tabIndex={0} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 1} onChange={this.amazonOnChange} tabIndex={1} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 2} onChange={this.amazonOnChange} tabIndex={2} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 3} onChange={this.amazonOnChange} tabIndex={3} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 4} onChange={this.amazonOnChange} tabIndex={4} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 5} onChange={this.amazonOnChange} tabIndex={5} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 6} onChange={this.amazonOnChange} tabIndex={6} /></Col>
+                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 7} onChange={this.amazonOnChange} tabIndex={7} /></Col>
                         </Row>
 
                         <Row>
@@ -113,13 +113,13 @@ export class WarmUp extends React.Component {
                                     Target
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 0} onChange={this.targetOnChange} tabIndex={0} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 1} onChange={this.targetOnChange} tabIndex={1} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 2} onChange={this.targetOnChange} tabIndex={2} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 3} onChange={this.targetOnChange} tabIndex={3} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 4} onChange={this.targetOnChange} tabIndex={4} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 5} onChange={this.targetOnChange} tabIndex={5} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 6} onChange={this.targetOnChange} tabIndex={6} /></Col>
+                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 7} onChange={this.targetOnChange} tabIndex={7} /></Col>
                         </Row>
                         {/* <br /> */}
                         <Row>
@@ -128,13 +128,13 @@ export class WarmUp extends React.Component {
                                     BestBuy
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 0} onChange={this.bestBuyOnChange} tabIndex={0} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 1} onChange={this.bestBuyOnChange} tabIndex={1} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 2} onChange={this.bestBuyOnChange} tabIndex={2} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 3} onChange={this.bestBuyOnChange} tabIndex={3} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 4} onChange={this.bestBuyOnChange} tabIndex={4} /></Col>
                             <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 5} onChange={this.bestBuyOnChange} tabIndex={5} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 6} onChange={this.amazonOnChange} tabIndex={6} /></Col>
+                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 6} onChange={this.bestBuyOnChange} tabIndex={6} /></Col>
+                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 7} onChange={this.bestBuyOnChange} tabIndex={7} /></Col>
                         </Row>
                         {/* <br /> */}
 
