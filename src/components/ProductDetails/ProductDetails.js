@@ -44,6 +44,8 @@ export class ProductDetails extends React.Component {
 	}
 
 	buyConfirm = () => {
+		const { data, index, products, prices } = this.props;
+		data.checkout_item = products[index] + '' + prices[index];
 		this.props.nextPage();
 	}
 
@@ -134,7 +136,7 @@ export class ProductDetails extends React.Component {
 							title=" "
 							centered
 							visible={this.state.modalVisible}
-							onOk={this.props.nextPage}
+							onOk={this.buyConfirm}
 							onCancel={() =>
 								this.setState({
 									modalVisible: false
