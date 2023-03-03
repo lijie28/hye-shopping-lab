@@ -10,6 +10,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    /* align-content: stretch; */
+    /* align-content: space-between; */
 }
 
 .mainText {
@@ -22,6 +24,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    /* align-content: flex-end; */
+    /* align-content: space-between; */
 }
 
 .closeButton {

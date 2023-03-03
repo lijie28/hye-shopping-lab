@@ -47,28 +47,28 @@ class App extends Component {
   }
 
   nextPage = () => {
-    if (this.state.showPage == ShowPage.welcome) {
+    if (this.state.showPage === ShowPage.welcome) {
       this.state.recordMouseMoved = false
       this.setShowPage(ShowPage.warmUp)
-    } else if (this.state.showPage == ShowPage.warmUp) {
+    } else if (this.state.showPage === ShowPage.warmUp) {
       this.state.recordMouseMoved = false
       this.setShowPage(ShowPage.instruction)
-    } else if (this.state.showPage == ShowPage.instruction) {
+    } else if (this.state.showPage === ShowPage.instruction) {
       this.state.recordMouseMoved = true
       this.setShowPage(ShowPage.productCards)
-    } else if (this.state.showPage == ShowPage.productCards) {
+    } else if (this.state.showPage === ShowPage.productCards) {
       this.state.recordMouseMoved = true
       this.setShowPage(ShowPage.productDetails0)
-    } else if (this.state.showPage == ShowPage.productDetails0) {
+    } else if (this.state.showPage === ShowPage.productDetails0) {
       this.state.recordMouseMoved = true
       this.setShowPage(ShowPage.questionnaire)
-    } else if (this.state.showPage == ShowPage.productDetails1) {
+    } else if (this.state.showPage === ShowPage.productDetails1) {
       this.state.recordMouseMoved = true
       this.setShowPage(ShowPage.questionnaire)
-    } else if (this.state.showPage == ShowPage.productDetails2) {
+    } else if (this.state.showPage === ShowPage.productDetails2) {
       this.state.recordMouseMoved = false
       this.setShowPage(ShowPage.questionnaire)
-    } else if (this.state.showPage == ShowPage.questionnaire) {
+    } else if (this.state.showPage === ShowPage.questionnaire) {
       this.state.recordMouseMoved = false
       this.setShowPage(ShowPage.demographics)
     }
@@ -100,11 +100,11 @@ class App extends Component {
   render() {
     const data = this.props.data;
     let path;
-    if (this.state.showPage == ShowPage.productCards) {
+    if (this.state.showPage === ShowPage.productCards) {
       path = '';
-    } else if (this.state.showPage == ShowPage.productDetails0) {
+    } else if (this.state.showPage === ShowPage.productDetails0) {
       path = 'product_0';
-    } else if (this.state.showPage == ShowPage.productDetails1) {
+    } else if (this.state.showPage === ShowPage.productDetails1) {
       path = 'product_1';
     } else {
       path = 'product_2';
@@ -150,12 +150,12 @@ class App extends Component {
     )
 
     return (
-      this.state.showPage == ShowPage.welcome ? <Welcome nextPage={this.nextPage} /> :
-        this.state.showPage == ShowPage.warmUp ? <WarmUp nextPage={this.nextPage} data={data} /> :
-          this.state.showPage == ShowPage.instruction ? <Instruction nextPage={this.nextPage} /> :
-            this.state.showPage == ShowPage.questionnaire ? <Questionnaire nextPage={this.nextPage} data={data} products={products} prices={prices} /> :
-              this.state.showPage == ShowPage.demographics ? <Demographics data={data} /> :
-                // this.state.showPage == ShowPage.questionnaire ? <Questionnaire data={this.data} products={this.products} prices={this.prices} nextPage={this.nextPage} /> :
+      this.state.showPage === ShowPage.welcome ? <Welcome nextPage={this.nextPage} /> :
+        this.state.showPage === ShowPage.warmUp ? <WarmUp nextPage={this.nextPage} data={data} /> :
+          this.state.showPage === ShowPage.instruction ? <Instruction nextPage={this.nextPage} /> :
+            this.state.showPage === ShowPage.questionnaire ? <Questionnaire nextPage={this.nextPage} data={data} products={products} prices={prices} /> :
+              this.state.showPage === ShowPage.demographics ? <Demographics data={data} /> :
+                // this.state.showPage === ShowPage.questionnaire ? <Questionnaire data={this.data} products={this.products} prices={this.prices} nextPage={this.nextPage} /> :
                 <html onMouseMove={this.getMousePos}>
                   <Layout>
                     <Header className='shopping-header'>
@@ -182,10 +182,10 @@ class App extends Component {
                             backgroundColor: '#ffffff'
                           }}
                         >
-                          {this.state.showPage == ShowPage.productCards ? <ProductCards /> : null}
-                          {this.state.showPage == ShowPage.productDetails0 ? <ProductDetails data={data} index={0} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
-                          {this.state.showPage == ShowPage.productDetails1 ? <ProductDetails data={data} index={1} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
-                          {this.state.showPage == ShowPage.productDetails2 ? <ProductDetails data={data} index={2} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
+                          {this.state.showPage === ShowPage.productCards ? <ProductCards /> : null}
+                          {this.state.showPage === ShowPage.productDetails0 ? <ProductDetails data={data} index={0} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
+                          {this.state.showPage === ShowPage.productDetails1 ? <ProductDetails data={data} index={1} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
+                          {this.state.showPage === ShowPage.productDetails2 ? <ProductDetails data={data} index={2} products={products} prices={prices} backToMainPage={this.backToMainPage} nextPage={this.nextPage} /> : null}
                         </Content>
                       </Layout>
                     </Layout>

@@ -1,11 +1,45 @@
-.center {
+.mainArea {
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    border: 3px solid rgb(35, 134, 233);
+    padding: 10px;
     margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* align-content: stretch; */
+    /* align-content: space-between; */
 }
 
+.mainText {
+    text-align: center;
+    height: 80%;
+    padding: 10px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* align-content: flex-end; */
+    /* align-content: space-between; */
+}
 
-.box {
-    padding: 5px;
+.closeButton {
+    padding: 10px;
+    /* margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90%; */
+    float: right;
+}
+
+.mainText {
+    font-size: 50;
 }

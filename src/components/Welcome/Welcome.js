@@ -23,6 +23,8 @@ export class Welcome extends React.Component {
         return (
             <div className='mainArea'>
                 <div className='mainText'>
+
+                    {/* <Space direction="vertical" size="middle" style={{ display: 'flex' }}> */}
                     <Paragraph style={{ fontSize: 20, }}>
                         Thank you for participating in our research study.
                     </Paragraph>
@@ -46,6 +48,7 @@ export class Welcome extends React.Component {
                     <div className='closeButton'>
                         <Button size="large" type="primary" onClick={this.props.nextPage}>Proceed</Button>
                     </div>
+                    {/* <Space /> */}
                 </div>
             </div>
         )
