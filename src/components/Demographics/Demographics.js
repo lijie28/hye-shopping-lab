@@ -68,6 +68,11 @@ export class Demographics extends React.Component {
         const { data } = this.props;
         data['gender'] = `${this.state.gender}`;
         data['age'] = `${this.state.age}`;
+        data['screen'] = `${screen.width}, ${screen.height}`;
+        data['avail'] = `${screen.availHeight}, ${screen.availWidth}`;
+        data['outer'] = `${window.outerHeight}, ${window.outerWidth}`;
+        data['inner'] = `${window.innerHeight}, ${window.innerWidth}`;
+
         console.log(`Submitting the data: ${JSON.stringify(data, null, 2)}`);
 
         this.setState({
