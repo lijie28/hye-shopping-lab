@@ -2,7 +2,7 @@
   "name": "hye",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://lijie28.github.io/hye-shopping/",
+  "homepage": "https://lijie28.github.io/hye-shopping-lab/",
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
