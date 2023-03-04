@@ -13,8 +13,7 @@ export class Demographics extends React.Component {
             warning: false,
             gender: null,
             okText: 'confirm',
-            age: null,
-            testInfo: ''
+            age: null
         };
         this.spanSize = 3;
         this.titleFontSize = 25;
@@ -63,6 +62,15 @@ export class Demographics extends React.Component {
         }
     }
 
+
+    downloadJson(content, fileName) {
+        var a = document.createElement("a");
+        var file = new Blob([content], { type: 'text/plain' });
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+    }
+
     saveToApi = () => {
         console.log('saveToApi')
         const { data } = this.props;
@@ -74,10 +82,9 @@ export class Demographics extends React.Component {
         data['inner'] = `${window.innerHeight}, ${window.innerWidth}`;
 
         console.log(`Submitting the data: ${JSON.stringify(data, null, 2)}`);
-
+        this.downloadJson(JSON.stringify(data, null, 2), `${data.version + data.session_id + '_' + Date.now()}.json`);
         this.setState({
-            // modalVisible: true
-            testInfo: `${JSON.stringify(data, null, 2)}`
+            modalVisible: true,
         })
         // post(data, true).then(res => { }).catch(err => {
         //     console.log('failed to save the data', err)
@@ -127,10 +134,9 @@ export class Demographics extends React.Component {
 
                     <br />
                     <div className='closeButton'>
-                        {(this.state.gender === null || this.state.age === null) ? <Button size="large" type="primary" disabled>Proceed</Button> : <Button size="large" type="primary" onClick={this.confirm}>Proceed</Button>}
+                        {(this.state.gender === null || this.state.age === null) ? <Button size="large" type="primary" disabled>Submit</Button> : <Button size="large" type="primary" onClick={this.confirm}>Submit</Button>}
                     </div>
                     <Modal
-                        title="Your response have been saved!"
                         centered
                         visible={this.state.modalVisible}
                         onOk={() => this.copyTestingId()}
@@ -139,8 +145,9 @@ export class Demographics extends React.Component {
                         okText={this.state.okText}
                     >
                         <p>
-                            Click the button to copy your testing ID and enter it back in the Qualtrics. Your testing ID is: <strong>{data.version + data.session_id}</strong>
-                            <br />Then you can close this window.
+                            Thank you. Your response has been recorded.
+                            <br />Your verification code is: <strong>{data.version + data.session_id}</strong>
+                            <br />Enter this verification to get compensated on Prolific.
                         </p>
                     </Modal>
                     <Modal
@@ -151,9 +158,6 @@ export class Demographics extends React.Component {
                         ]}
                     >Please enter your age in numbers
                     </Modal>
-                    <br />
-                    <p>{this.state.testInfo}</p>
-                    <br />
                 </div>
             </div>
         )

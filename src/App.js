@@ -155,7 +155,6 @@ class App extends Component {
           this.state.showPage === ShowPage.instruction ? <Instruction nextPage={this.nextPage} /> :
             this.state.showPage === ShowPage.questionnaire ? <Questionnaire nextPage={this.nextPage} data={data} products={products} prices={prices} /> :
               this.state.showPage === ShowPage.demographics ? <Demographics data={data} /> :
-                // this.state.showPage === ShowPage.questionnaire ? <Questionnaire data={this.data} products={this.products} prices={this.prices} nextPage={this.nextPage} /> :
                 <html onMouseMove={this.getMousePos}>
                   <Layout>
                     <Header className='shopping-header'>

@@ -133,7 +133,6 @@ export class ProductDetails extends React.Component {
 						</a>
 						<Button size="large" type="primary" onClick={this.checkout}>Checkout</Button>
 						<Modal
-							title=" "
 							centered
 							visible={this.state.modalVisible}
 							onOk={this.buyConfirm}
@@ -145,7 +144,7 @@ export class ProductDetails extends React.Component {
 							cancelText={this.state.cancelText}
 						>
 							<p>
-								<strong>I would want to buy this product</strong>
+								<strong>I would want to purchase this product</strong>
 								<br />
 							</p>
 						</Modal>
