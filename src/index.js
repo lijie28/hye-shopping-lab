@@ -13,11 +13,12 @@ const data = {};
 	data.session_id = generateUID();
 	data.version = '';
 	data.mouse_move = [];
-	for(let i = 0; i < 3; i++) {
+	for (let i = 0; i < 3; i++) {
 		data.version += products[i] + '' + prices[i];
 	}
-	data.loading_time = new Date().toLocaleString();
-	for(let i = 0; i < 3; i++) {
+	// data.loading_time = new Date().toLocaleString();
+	data.loading_time = `${Date.now()}`
+	for (let i = 0; i < 3; i++) {
 		data['product_cards_whole_' + products[i] + '_' + prices[i]] = [];
 		data['product_cards_price_' + products[i] + '_' + prices[i]] = [];
 		data['product_details_image_' + products[i] + '_' + prices[i]] = [];
@@ -40,9 +41,9 @@ function shuffleArray(array) {
 
 ReactDOM.render(
 	<BrowserRouter>
-		<App data={data} products={products} prices={prices}/>
+		<App data={data} products={products} prices={prices} />
 	</BrowserRouter>,
-  document.getElementById('root')
+	document.getElementById('root')
 );
 
 function generateUID() {
@@ -57,7 +58,7 @@ function generateUID() {
 
 window.onbeforeunload = function (event) {
 	console.log('reloading...')
-	post(data, false).then(res => {}).catch(err => {
+	post(data, false).then(res => { }).catch(err => {
 		console.log('failed to save the data')
 	});
 	event.preventDefault();
