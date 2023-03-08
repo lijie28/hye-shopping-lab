@@ -1,8 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Button, Checkbox, Space } from 'antd';
+import { Button, Space, Radio } from 'antd';
 import './WarmUp.css';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Col, Row, Typography } from 'antd';
 const { Paragraph } = Typography;
 
@@ -15,24 +14,27 @@ export class WarmUp extends React.Component {
             bestBuyScore: null,
         };
         this.spanSize = 3;
+
+        this.radioSpanSize = 100;
         this.fontSize = 20;
     }
 
-    amazonOnChange = (e: CheckboxChangeEvent) => {
+    amazonOnChange = (e: Event) => {
+
         this.setState({
-            amazonScore: e.target.tabIndex
+            amazonScore: e.target.value
         })
     };
 
-    targetOnChange = (e: CheckboxChangeEvent) => {
+    targetOnChange = (e: Event) => {
         this.setState({
-            targetScore: e.target.tabIndex
+            targetScore: e.target.value
         })
     };
 
-    bestBuyOnChange = (e: CheckboxChangeEvent) => {
+    bestBuyOnChange = (e: Event) => {
         this.setState({
-            bestBuyScore: e.target.tabIndex
+            bestBuyScore: e.target.value
         })
     };
 
@@ -98,13 +100,19 @@ export class WarmUp extends React.Component {
                                     Amazon
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 1} onChange={this.amazonOnChange} tabIndex={1} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 2} onChange={this.amazonOnChange} tabIndex={2} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 3} onChange={this.amazonOnChange} tabIndex={3} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 4} onChange={this.amazonOnChange} tabIndex={4} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 5} onChange={this.amazonOnChange} tabIndex={5} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 6} onChange={this.amazonOnChange} tabIndex={6} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.amazonScore === 7} onChange={this.amazonOnChange} tabIndex={7} /></Col>
+                            <Col span={this.spanSize * 7}>
+                                <Radio.Group name="Amazon" size={'large'} defaultValue={this.state.amazonScore} onChange={this.amazonOnChange}>
+                                    <Space size={this.radioSpanSize} >
+                                        <Radio value={1}></Radio>
+                                        <Radio value={2}></Radio>
+                                        <Radio value={3}></Radio>
+                                        <Radio value={4}></Radio>
+                                        <Radio value={5}></Radio>
+                                        <Radio value={6}></Radio>
+                                        <Radio value={7}></Radio>
+                                    </Space>
+                                </Radio.Group>
+                            </Col>
                         </Row>
 
                         <Row>
@@ -113,30 +121,41 @@ export class WarmUp extends React.Component {
                                     Target
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 1} onChange={this.targetOnChange} tabIndex={1} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 2} onChange={this.targetOnChange} tabIndex={2} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 3} onChange={this.targetOnChange} tabIndex={3} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 4} onChange={this.targetOnChange} tabIndex={4} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 5} onChange={this.targetOnChange} tabIndex={5} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 6} onChange={this.targetOnChange} tabIndex={6} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.targetScore === 7} onChange={this.targetOnChange} tabIndex={7} /></Col>
+                            <Col span={this.spanSize * 7}>
+                                <Radio.Group name="Target" size={'large'} defaultValue={this.state.targetScore} onChange={this.targetOnChange}>
+                                    <Space size={this.radioSpanSize}>
+                                        <Radio value={1}></Radio>
+                                        <Radio value={2}></Radio>
+                                        <Radio value={3}></Radio>
+                                        <Radio value={4}></Radio>
+                                        <Radio value={5}></Radio>
+                                        <Radio value={6}></Radio>
+                                        <Radio value={7}></Radio>
+                                    </Space>
+                                </Radio.Group>
+                            </Col>
                         </Row>
-                        {/* <br /> */}
+
                         <Row>
                             <Col span={this.spanSize}>
                                 <Paragraph style={{ fontSize: this.fontSize, }}>
                                     BestBuy
                                 </Paragraph>
                             </Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 1} onChange={this.bestBuyOnChange} tabIndex={1} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 2} onChange={this.bestBuyOnChange} tabIndex={2} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 3} onChange={this.bestBuyOnChange} tabIndex={3} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 4} onChange={this.bestBuyOnChange} tabIndex={4} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 5} onChange={this.bestBuyOnChange} tabIndex={5} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 6} onChange={this.bestBuyOnChange} tabIndex={6} /></Col>
-                            <Col span={this.spanSize}><Checkbox checked={this.state.bestBuyScore === 7} onChange={this.bestBuyOnChange} tabIndex={7} /></Col>
+                            <Col span={this.spanSize * 7}>
+                                <Radio.Group name="BestBuy" size={'large'} defaultValue={this.state.bestBuyScore} onChange={this.bestBuyOnChange}>
+                                    <Space size={this.radioSpanSize}>
+                                        <Radio value={1}></Radio>
+                                        <Radio value={2}></Radio>
+                                        <Radio value={3}></Radio>
+                                        <Radio value={4}></Radio>
+                                        <Radio value={5}></Radio>
+                                        <Radio value={6}></Radio>
+                                        <Radio value={7}></Radio>
+                                    </Space>
+                                </Radio.Group>
+                            </Col>
                         </Row>
-                        {/* <br /> */}
 
 
                         <div className='closeButton'>
@@ -145,7 +164,7 @@ export class WarmUp extends React.Component {
                     </Space>
                     {/* </div> */}
                 </div>
-            </div>
+            </div >
         )
     }
 }
