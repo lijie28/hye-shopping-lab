@@ -50,21 +50,24 @@ export class ProductCard extends React.Component {
 				onMouseLeave={this.handleMouseMoveCardWhole}>
 				<Card
 					hoverable
-					cover={<img src={productImageUri} style={{ width: '250px' }} />}
+					cover={
+						<img
+							onMouseEnter={this.handleMouseMoveCardImage}
+							onMouseLeave={this.handleMouseMoveCardImage}
+							style={{
+								width: '80%',
+								height: '80%',
+							}} src={priceImageUri} />
+
+					}
 				>
 					<Row gutter={20}>
-						<Col span={10}>
+						<Col span={8}>
 							<Meta
 								title={name} description={productsConfig.products[index].name} />
 						</Col>
-						<Col span={10}>
-							<img
-								onMouseEnter={this.handleMouseMoveCardImage}
-								onMouseLeave={this.handleMouseMoveCardImage}
-								style={{
-									width: '300px',
-									height: '100px'
-								}} src={priceImageUri} />
+						<Col span={12}>
+							<img src={productImageUri} style={{ width: '250px' }} />
 						</Col>
 					</Row>
 				</Card>
