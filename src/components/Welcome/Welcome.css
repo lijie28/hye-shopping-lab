@@ -14,9 +14,10 @@
     /* align-content: space-between; */
 }
 
-.mainText {
+.WelcomeMainText {
     text-align: center;
     height: 80%;
+    width: 80%;
     padding: 10px;
     margin: auto;
     position: absolute;

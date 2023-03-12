@@ -1,10 +1,14 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import './ProductDetails.css';
-import { Button, Image, Space, Row, Col, Modal } from 'antd';
+import { Button, Image, Space, Row, Col, Modal, Typography } from 'antd';
 import { post } from '../../api/api';
 import { getPriceImageUri, getProductImageUri } from "../utils";
-import { products as productsConfig } from '../../product_config.json';
+// import { productsConfig } from '../../product_config.json';
+// import { products_config } from '../../product_config.js';
+import { products_config as productsConfig } from '../../product_config.js';
+
+const { Paragraph } = Typography;
 
 export class ProductDetails extends React.Component {
 	constructor(props) {
@@ -97,74 +101,73 @@ export class ProductDetails extends React.Component {
 		const priceImageUri = getPriceImageUri(prices[index]);
 
 		return (
-			<Row gutter={[16, 16]}>
-				<Col span={8}>
-					<Image onMouseEnter={this.handleMouseMoveDetailsImage}
-						onMouseLeave={this.handleMouseMoveDetailsImage}
-						src={productImageUri}
-						preview={false} />
-				</Col>
-				<Col span={16}>
-					<div onMouseEnter={this.handleMouseMoveDetailsTitleDescription}
-						onMouseLeave={this.handleMouseMoveDetailsTitleDescription}>
-						<h1 style={{
-							fontSize: '40px',
-							fontWeight: 'bold'
-						}}>
-							{productsConfig[index].name}
-						</h1>
-						<p style={{
-							fontSize: '20px',
-						}}>{productsConfig[index].description}</p>
-					</div>
-					<div>
-						<img
-							onMouseEnter={this.handleMouseMoveDetailsPrice}
-							onMouseLeave={this.handleMouseMoveDetailsPrice}
-							style={{
-								height: '150px',
-								width: '400px'
-							}}
-							src={priceImageUri} />
-					</div>
-					<Space>
-						<a>
-							<Button size="large" type="default" onClick={this.props.backToMainPage.bind(this)}>Back</Button>
-						</a>
-						<Button size="large" type="primary" onClick={this.checkout}>Checkout</Button>
-						<Modal
-							centered
-							visible={this.state.modalVisible}
-							onOk={this.buyConfirm}
-							onCancel={() =>
-								this.setState({
-									modalVisible: false
-								})}
-							okText={this.state.okText}
-							cancelText={this.state.cancelText}
-						>
-							<p>
-								<strong>I would want to purchase this product</strong>
-								<br />
-							</p>
-						</Modal>
-						{/* <Modal
-							title="Your response have been saved!"
-							centered
-							visible={this.state.modalVisible}
-							onOk={() => this.copyTestingId()}
-							closable={false}
-							cancelButtonProps={{ disabled: true }}
-							okText={this.state.okText}
-						>
-							<p>
-								Click the button to copy your testing ID and enter it back in the Qualtrics. Your testing ID is: <strong>{data.version + data.session_id}</strong>
-								<br />Then you can close this window.
-							</p>
-						</Modal> */}
-					</Space>
-				</Col>
-			</Row>
+			<div className='detailMainArea'>
+				<Row gutter={[16, 16]}>
+					<Col span={8}>
+						<Image onMouseEnter={this.handleMouseMoveDetailsImage}
+							onMouseLeave={this.handleMouseMoveDetailsImage}
+							src={productImageUri}
+							preview={false} />
+					</Col>
+					<Col span={16}>
+						<div onMouseEnter={this.handleMouseMoveDetailsTitleDescription}
+							onMouseLeave={this.handleMouseMoveDetailsTitleDescription}>
+							<h1 style={{
+								fontSize: '30px',
+								fontWeight: 'bold'
+							}} >
+								Product Overview
+							</h1>
+							<p className='detailText' style={{
+								fontSize: '20px',
+							}}>{productsConfig.products[index].description}</p>
+							<br></br>
+							<br></br>
+							<h1 style={{
+								fontSize: '30px',
+								fontWeight: 'bold'
+							}}>
+								Highlights
+							</h1>
+							<p className='detailText' style={{
+								fontSize: '20px',
+							}}>{productsConfig.products[index].highlights}</p>
+						</div>
+						<div>
+							<img
+								onMouseEnter={this.handleMouseMoveDetailsPrice}
+								onMouseLeave={this.handleMouseMoveDetailsPrice}
+								style={{
+									height: '150px',
+									width: '400px'
+								}}
+								src={priceImageUri} />
+						</div>
+						<Space>
+							<a>
+								<Button size="large" type="default" onClick={this.props.backToMainPage.bind(this)}>Back</Button>
+							</a>
+							<Button size="large" type="primary" onClick={this.checkout}>Checkout</Button>
+							<Modal
+								centered
+								visible={this.state.modalVisible}
+								onOk={this.buyConfirm}
+								onCancel={() =>
+									this.setState({
+										modalVisible: false
+									})}
+								okText={this.state.okText}
+								cancelText={this.state.cancelText}
+							>
+								<p>
+									<strong>I would like to purchase this product</strong>
+									<br />
+								</p>
+							</Modal>
+						</Space>
+					</Col>
+				</Row>
+			</div>
 		)
 	}
 }

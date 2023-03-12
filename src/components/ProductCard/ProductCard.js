@@ -1,9 +1,10 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import { Card, Row, Col} from 'antd';
+// import 'antd/dist/antd.css';
+// import 'antd/dist/antd.min.css';
+import { Card, Row, Col } from 'antd';
 import './ProductCard.css';
 import { getProductImageUri, getPriceImageUri } from '../utils'
-import { products as productsConfig } from '../../product_config.json';
+import { products_config as productsConfig } from '../../product_config.js';
 
 const { Meta } = Card;
 
@@ -49,21 +50,21 @@ export class ProductCard extends React.Component {
 				onMouseLeave={this.handleMouseMoveCardWhole}>
 				<Card
 					hoverable
-					cover={<img src={productImageUri} />}
+					cover={<img src={productImageUri} style={{ width: '250px' }} />}
 				>
 					<Row gutter={20}>
-						<Col span={14}>
+						<Col span={10}>
 							<Meta
-								title={name} description={productsConfig[index].name} />
+								title={name} description={productsConfig.products[index].name} />
 						</Col>
-						<Col span={6}>
+						<Col span={10}>
 							<img
 								onMouseEnter={this.handleMouseMoveCardImage}
 								onMouseLeave={this.handleMouseMoveCardImage}
 								style={{
-								width: '210px',
-								height: '70px'
-							}} src={priceImageUri} />
+									width: '300px',
+									height: '100px'
+								}} src={priceImageUri} />
 						</Col>
 					</Row>
 				</Card>

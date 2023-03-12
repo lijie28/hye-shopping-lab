@@ -1,5 +1,5 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import { Card, Row, Col, Space, Typography } from 'antd';
 import './ProductCard.css';
 import { getProductImageUri, getPriceImageUri } from '../utils'

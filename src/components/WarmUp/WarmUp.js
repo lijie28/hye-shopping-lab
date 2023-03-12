@@ -1,5 +1,5 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import { Button, Space, Radio } from 'antd';
 import './WarmUp.css';
 import { Col, Row, Typography } from 'antd';
@@ -15,8 +15,23 @@ export class WarmUp extends React.Component {
         };
         this.spanSize = 3;
 
-        this.radioSpanSize = 100;
+        this.radioSpanSize = ((window.innerWidth * 0.9 - 10 * 2) / 8 - 20);
         this.fontSize = 20;
+    }
+
+    updateDimensions = () => {
+        this.setState({
+            radioSpanSize: ((window.innerWidth * 0.9 - 10 * 2) / 8 - 20)
+        });
+    };
+
+    componentDidMount() {
+        console.log('componentDidMount');
+        window.addEventListener('resize', this.updateDimensions);
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+        window.removeEventListener('resize', this.updateDimensions);
     }
 
     amazonOnChange = (e: Event) => {
@@ -49,10 +64,10 @@ export class WarmUp extends React.Component {
     render() {
         return (
             <div className='mainArea'>
-                <div className='mainText'>
+                <div className='WarmUpMainText'>
                     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
                         <Paragraph style={{ fontSize: this.fontSize, }}>
-                            How much do you like the following shopping platforms?
+                            How much do you like the following shopping websites?
                         </Paragraph>
 
                         <Row>
@@ -102,7 +117,8 @@ export class WarmUp extends React.Component {
                             </Col>
                             <Col span={this.spanSize * 7}>
                                 <Radio.Group name="Amazon" size={'large'} defaultValue={this.state.amazonScore} onChange={this.amazonOnChange}>
-                                    <Space size={this.radioSpanSize} >
+                                    <Space size={this.radioSpanSize} align='end'>
+
                                         <Radio value={1}></Radio>
                                         <Radio value={2}></Radio>
                                         <Radio value={3}></Radio>
@@ -110,6 +126,7 @@ export class WarmUp extends React.Component {
                                         <Radio value={5}></Radio>
                                         <Radio value={6}></Radio>
                                         <Radio value={7}></Radio>
+
                                     </Space>
                                 </Radio.Group>
                             </Col>

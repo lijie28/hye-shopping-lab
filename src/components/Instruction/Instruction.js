@@ -1,5 +1,5 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import { Button, Checkbox, Typography, Space } from 'antd';
 import './Instruction.css';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
@@ -23,16 +23,19 @@ export class Instruction extends React.Component {
     render() {
         return (
             <div className='mainArea'>
-                <div className='mainText'>
+                <div className='instructionmMainText'>
                     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
                         <Paragraph style={{ fontSize: this.fontSize, }}>
-                            Now imagine that you are in need of a handheld vacuum.
+                            Now imagine that you are in need of a coffee machine.
                         </Paragraph>
                         <Paragraph style={{ fontSize: this.fontSize, }}>
-                            You decided to shop for a handheld vacuum online.
+                            You have decided to shop for it online.
                         </Paragraph>
                         <Paragraph style={{ fontSize: this.fontSize, }}>
-                            On the next page, you will enter a mock online store. Your task is to browse the products like you normally do and decide on which one you would like to purchase. Once you made you decision, click on “check out” and you will be directed back to the survey.
+                            On the next page, you will be entering a online store created (mock) for this study.
+                            Your task is to browse the products like you normally do and decide on which one you would like to purchase. Once you have made your decision, click on the “check out” button.
+                            You will then be directed to a follow up survey to answer a few questions.
+
                         </Paragraph>
 
                         <Checkbox onChange={this.onChange}>

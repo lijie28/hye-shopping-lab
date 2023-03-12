@@ -1,12 +1,9 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import { Card, Row, Col, Space, Checkbox, Button, Typography } from 'antd';
+
+import { Row, Col, Space, Checkbox, Button, Typography, Radio } from 'antd';
 import './Questionnaire.css';
-import { getProductImageUri, getPriceImageUri } from '../utils'
-import { products as productsConfig } from '../../product_config.json';
 import { ProductCardWithoutEvent } from '../ProductCard/ProductCardWithoutEvent';
 const { Paragraph } = Typography;
-const { Meta } = Card;
 
 export class Questionnaire extends React.Component {
 
@@ -18,24 +15,25 @@ export class Questionnaire extends React.Component {
 			offerCScore: null,
 		};
 		this.spanSize = 3;
+		this.radioSpanSize = ((window.innerWidth * 0.9 - 10 * 2) / 8 - 20);
 		this.fontSize = 15;
 	}
 
-	offerAOnChange = (e: CheckboxChangeEvent) => {
+	offerAOnChange = (e: Event) => {
 		this.setState({
-			offerAScore: e.target.tabIndex
+			offerAScore: e.target.value
 		})
 	};
 
-	offerBOnChange = (e: CheckboxChangeEvent) => {
+	offerBOnChange = (e: Event) => {
 		this.setState({
-			offerBScore: e.target.tabIndex
+			offerBScore: e.target.value
 		})
 	};
 
-	offerCOnChange = (e: CheckboxChangeEvent) => {
+	offerCOnChange = (e: Event) => {
 		this.setState({
-			offerCScore: e.target.tabIndex
+			offerCScore: e.target.value
 		})
 	};
 
@@ -51,7 +49,7 @@ export class Questionnaire extends React.Component {
 		const { data, products, prices } = this.props;
 		return (
 			<div className='mainArea'>
-				<Space direction="vertical" style={{ display: 'flex' }}>
+				<Space direction="vertical" style={{ display: 'flex' }} >
 					<Row gutter={24}>
 						<Col span={8} >
 							{/* <a> */}
@@ -82,38 +80,46 @@ export class Questionnaire extends React.Component {
 						</Col>
 					</Row>
 
-					<Row>
-						<Col span={this.spanSize}>
-						</Col>
-						<Col span={this.spanSize}>
 
+					<Row align='center'>
+						<Col span={this.spanSize} align='center'>
+						</Col>
+						<Col span={this.spanSize} align='center'>
 							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Not Irritated
+								Not Irritated<br />0
 							</Paragraph>
 						</Col>
 						<Col span={this.spanSize}>
-
-						</Col>
-						<Col span={this.spanSize}>
-
-						</Col>
-						<Col span={this.spanSize}>
-
-						</Col>
-						<Col span={this.spanSize}>
-
-						</Col>
-						<Col span={this.spanSize}>
-
-						</Col>
-						<Col span={this.spanSize}>
-
 							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Irritated
+								<br />1
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								<br />2
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								<br />3
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								<br />4
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								<br />5
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								Irritated<br />6
 							</Paragraph>
 						</Col>
 					</Row>
-
 
 					<Row>
 						<Col span={this.spanSize}>
@@ -121,28 +127,42 @@ export class Questionnaire extends React.Component {
 								Looking at Offer A makes me feel
 							</Paragraph>
 						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 1} onChange={this.offerAOnChange} tabIndex={1} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 2} onChange={this.offerAOnChange} tabIndex={2} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 3} onChange={this.offerAOnChange} tabIndex={3} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 4} onChange={this.offerAOnChange} tabIndex={4} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 5} onChange={this.offerAOnChange} tabIndex={5} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 6} onChange={this.offerAOnChange} tabIndex={6} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerAScore == 7} onChange={this.offerAOnChange} tabIndex={7} />
+						<Col span={this.spanSize * 7}>
+							<Radio.Group name="A" size={'large'} defaultValue={this.state.offerAScore} onChange={this.offerAOnChange}>
+								<Space size={this.radioSpanSize} >
+									<Radio value={1}></Radio>
+									<Radio value={2}></Radio>
+									<Radio value={3}></Radio>
+									<Radio value={4}></Radio>
+									<Radio value={5}></Radio>
+									<Radio value={6}></Radio>
+									<Radio value={7}></Radio>
+								</Space>
+							</Radio.Group>
 						</Col>
 					</Row>
+
+					<Row justify="end">
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								Looking at Offer B makes me feel
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize * 7}>
+							<Radio.Group name="B" size={'large'} defaultValue={this.state.offerBScore} onChange={this.offerBOnChange}>
+								<Space size={this.radioSpanSize} align='center' >
+									<Radio value={1}></Radio>
+									<Radio value={2}></Radio>
+									<Radio value={3}></Radio>
+									<Radio value={4}></Radio>
+									<Radio value={5}></Radio>
+									<Radio value={6}></Radio>
+									<Radio value={7}></Radio>
+								</Space>
+							</Radio.Group>
+						</Col>
+					</Row>
+
 
 					<Row>
 						<Col span={this.spanSize}>
@@ -150,57 +170,18 @@ export class Questionnaire extends React.Component {
 								Looking at Offer C makes me feel
 							</Paragraph>
 						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 1} onChange={this.offerBOnChange} tabIndex={1} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 2} onChange={this.offerBOnChange} tabIndex={2} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 3} onChange={this.offerBOnChange} tabIndex={3} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 4} onChange={this.offerBOnChange} tabIndex={4} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 5} onChange={this.offerBOnChange} tabIndex={5} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 6} onChange={this.offerBOnChange} tabIndex={6} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerBScore == 7} onChange={this.offerBOnChange} tabIndex={7} />
-						</Col>
-					</Row>
-
-					<Row>
-						<Col span={this.spanSize}>
-							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Looking at Offer C makes me feel
-							</Paragraph>
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerCScore == 1} onChange={this.offerCOnChange} tabIndex={1} />
-						</Col>
-						<Col span={this.spanSize}>
-
-							<Checkbox checked={this.state.offerCScore == 2} onChange={this.offerCOnChange} tabIndex={2} />
-						</Col>
-						<Col span={this.spanSize}>
-
-							<Checkbox checked={this.state.offerCScore == 3} onChange={this.offerCOnChange} tabIndex={3} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerCScore == 4} onChange={this.offerCOnChange} tabIndex={4} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerCScore == 5} onChange={this.offerCOnChange} tabIndex={5} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerCScore == 6} onChange={this.offerCOnChange} tabIndex={6} />
-						</Col>
-						<Col span={this.spanSize}>
-							<Checkbox checked={this.state.offerCScore == 7} onChange={this.offerCOnChange} tabIndex={7} />
+						<Col span={this.spanSize * 7}>
+							<Radio.Group name="C" size={'large'} defaultValue={this.state.offerCScore} onChange={this.offerCOnChange}>
+								<Space size={this.radioSpanSize} >
+									<Radio value={1}></Radio>
+									<Radio value={2}></Radio>
+									<Radio value={3}></Radio>
+									<Radio value={4}></Radio>
+									<Radio value={5}></Radio>
+									<Radio value={6}></Radio>
+									<Radio value={7}></Radio>
+								</Space>
+							</Radio.Group>
 						</Col>
 					</Row>
 
@@ -208,7 +189,7 @@ export class Questionnaire extends React.Component {
 						{((this.state.offerAScore == null) || (this.state.offerBScore == null) || (this.state.offerCScore == null)) ? <Button size="large" type="primary" disabled>Proceed</Button> : <Button size="large" type="primary" onClick={this.onClick}>Proceed</Button>}
 					</div>
 				</Space>
-			</div>
+			</div >
 		)
 	}
 }

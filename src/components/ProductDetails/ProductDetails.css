@@ -1,0 +1,19 @@
+.detailMainArea {
+    /* text-align: center; */
+    width: 80%;
+    height: 100%;
+    /* border: 3px solid rgb(35, 134, 233);
+    padding: 10px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    /* align-content: stretch; */
+    /* align-content: space-between; */
+}
+
+.detailText {
+    white-space: pre-wrap;
+}

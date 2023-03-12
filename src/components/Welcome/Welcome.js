@@ -1,5 +1,5 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import { Button, Space } from 'antd';
 import './Welcome.css';
 import ShowPage from '../../App';
@@ -22,17 +22,17 @@ export class Welcome extends React.Component {
     render() {
         return (
             <div className='mainArea'>
-                <div className='mainText'>
+                <div className='WelcomeMainText'>
 
                     {/* <Space direction="vertical" size="middle" style={{ display: 'flex' }}> */}
                     <Paragraph style={{ fontSize: 20, }}>
-                        Thank you for participating in our research study.
+                        Thank you for participating in our study.
                     </Paragraph>
                     <Paragraph style={{ fontSize: 20, }}>
-                        We are interested in knowing how consumer evaluation product offerings on shopping platforms.
+                        We are interested in knowing how consumers evaluate product offerings on shopping websites.
                     </Paragraph>
                     <Paragraph style={{ fontSize: 20, }}>
-                        On the next few screens, you will be asked to indicate your experience with shopping platforms.
+                        On the next few screens, you will be asked to indicate your experience with common websites.
                     </Paragraph>
                     <Paragraph style={{ fontSize: 20, }}>
                         You will then enter a mock online store and will be ask to shop for a preferred product.

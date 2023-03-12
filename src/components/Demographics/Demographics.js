@@ -1,8 +1,9 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import { Button, Checkbox, Modal, Input, Typography, Space } from 'antd';
+// import 'antd/dist/antd.css';
+
+import { Button, Checkbox, Modal, Input, Typography, Space, Radio } from 'antd';
 import './Demographics.css';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+
 const { Paragraph } = Typography;
 
 export class Demographics extends React.Component {
@@ -17,6 +18,7 @@ export class Demographics extends React.Component {
         };
         this.spanSize = 3;
         this.titleFontSize = 25;
+        this.radioSpanSize = 20;
         this.fontSize = 20;
     }
 
@@ -31,9 +33,9 @@ export class Demographics extends React.Component {
         })
     }
 
-    genderOnChange = (e: CheckboxChangeEvent) => {
+    genderOnChange = (e: Event) => {
         this.setState({
-            gender: e.target.tabIndex
+            gender: e.target.value
         })
     };
 
@@ -76,7 +78,7 @@ export class Demographics extends React.Component {
         const { data } = this.props;
         data['gender'] = `${this.state.gender}`;
         data['age'] = `${this.state.age}`;
-        data['screen'] = `${screen.width}, ${screen.height}`;
+        data['screen'] = `${screen.height}, ${screen.width}`;
         data['avail'] = `${screen.availHeight}, ${screen.availWidth}`;
         data['outer'] = `${window.outerHeight}, ${window.outerWidth}`;
         data['inner'] = `${window.innerHeight}, ${window.innerWidth}`;
@@ -101,31 +103,16 @@ export class Demographics extends React.Component {
                         What is your gender?
                     </Paragraph>
 
-                    <Space direction="vertical">
-                        <Checkbox checked={this.state.gender === 0} onChange={this.genderOnChange} tabIndex={0}>
-                            <Paragraph style={{ fontSize: this.fontSize, }}>
-                                Male
-                            </Paragraph>
-                        </Checkbox>
-
-                        <Checkbox checked={this.state.gender === 1} onChange={this.genderOnChange} tabIndex={1}>
-                            <Paragraph style={{ fontSize: this.fontSize, }}>
-                                Female
-                            </Paragraph>
-                        </Checkbox>
-
-                        <Checkbox checked={this.state.gender === 2} onChange={this.genderOnChange} tabIndex={2}>
-                            <Paragraph style={{ fontSize: this.fontSize, }}>
-                                No-binary / third gender
-                            </Paragraph>
-                        </Checkbox>
-
-                        <Checkbox checked={this.state.gender === 3} onChange={this.genderOnChange} tabIndex={3}>
-                            <Paragraph style={{ fontSize: this.fontSize, }}>
-                                Prefer not to say
-                            </Paragraph>
-                        </Checkbox>
-                    </Space>
+                    <div style={{ 'margin-bottom': '30px' }}>
+                        <Radio.Group name="gender" size={'large'} defaultValue={this.state.gender} onChange={this.genderOnChange}>
+                            <Space direction="vertical" size={this.radioSpanSize}>
+                                <Radio value={0}>Male</Radio>
+                                <Radio value={1}>Female</Radio>
+                                <Radio value={2}>No-binary / third gender</Radio>
+                                <Radio value={3}>Prefer not to say</Radio>
+                            </Space>
+                        </Radio.Group>
+                    </div>
 
                     <Paragraph style={{ fontSize: this.titleFontSize, }}>
                         What is your age? (please enter numbers only)
@@ -159,7 +146,7 @@ export class Demographics extends React.Component {
                     >Please enter your age in numbers
                     </Modal>
                 </div>
-            </div>
+            </div >
         )
     }
 }

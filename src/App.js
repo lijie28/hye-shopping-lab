@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
+import './App.less';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+// import 'antd/dist/antd.min.css';
 import { ProductDetails } from './components/ProductDetails/ProductDetails'
 import { ProductCard } from './components/ProductCard/ProductCard'
 import { Welcome } from './components/Welcome/Welcome'
@@ -9,8 +11,6 @@ import { Col, Row } from 'antd';
 import { WarmUp } from './components/WarmUp/WarmUp';
 import { Instruction } from './components/Instruction/Instruction';
 import { Questionnaire } from './components/Questionnaire/Questionnaire';
-
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Demographics } from './components/Demographics/Demographics';
 const { Header, Content } = Layout;
 
