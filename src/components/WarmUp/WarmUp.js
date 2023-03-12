@@ -65,12 +65,12 @@ export class WarmUp extends React.Component {
         return (
             <div className='mainArea'>
                 <div className='WarmUpMainText'>
-                    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+                    <Space direction="vertical" size={45} style={{ display: 'flex' }}>
                         <Paragraph style={{ fontSize: this.fontSize, }}>
                             How much do you like the following shopping websites?
                         </Paragraph>
 
-                        <Row>
+                        <Row >
                             <Col span={this.spanSize}></Col>
                             <Col span={this.spanSize}>
                                 <Paragraph style={{ fontSize: this.fontSize, }}>
@@ -109,11 +109,11 @@ export class WarmUp extends React.Component {
                             </Col>
                         </Row>
 
-                        <Row>
+                        <Row justify="space-around" align="middle">
                             <Col span={this.spanSize}>
-                                <Paragraph style={{ fontSize: this.fontSize, }}>
+                                <div style={{ fontSize: this.fontSize, }}>
                                     Amazon
-                                </Paragraph>
+                                </div>
                             </Col>
                             <Col span={this.spanSize * 7}>
                                 <Radio.Group name="Amazon" size={'large'} defaultValue={this.state.amazonScore} onChange={this.amazonOnChange}>
@@ -132,11 +132,11 @@ export class WarmUp extends React.Component {
                             </Col>
                         </Row>
 
-                        <Row>
+                        <Row justify="space-around" align="middle">
                             <Col span={this.spanSize}>
-                                <Paragraph style={{ fontSize: this.fontSize, }}>
+                                <div style={{ fontSize: this.fontSize, }}>
                                     Target
-                                </Paragraph>
+                                </div>
                             </Col>
                             <Col span={this.spanSize * 7}>
                                 <Radio.Group name="Target" size={'large'} defaultValue={this.state.targetScore} onChange={this.targetOnChange}>
@@ -153,11 +153,11 @@ export class WarmUp extends React.Component {
                             </Col>
                         </Row>
 
-                        <Row>
+                        <Row justify="space-around" align="middle">
                             <Col span={this.spanSize}>
-                                <Paragraph style={{ fontSize: this.fontSize, }}>
+                                <div style={{ fontSize: this.fontSize, }}>
                                     BestBuy
-                                </Paragraph>
+                                </div>
                             </Col>
                             <Col span={this.spanSize * 7}>
                                 <Radio.Group name="BestBuy" size={'large'} defaultValue={this.state.bestBuyScore} onChange={this.bestBuyOnChange}>

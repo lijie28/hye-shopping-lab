@@ -16,7 +16,7 @@ export class Questionnaire extends React.Component {
 		};
 		this.spanSize = 3;
 		this.radioSpanSize = ((window.innerWidth * 0.9 - 10 * 2) / 8 - 20);
-		this.fontSize = 15;
+		this.fontSize = 18;
 	}
 
 	offerAOnChange = (e: Event) => {
@@ -121,11 +121,11 @@ export class Questionnaire extends React.Component {
 						</Col>
 					</Row>
 
-					<Row>
+					<Row justify="space-around" align="middle">
 						<Col span={this.spanSize}>
-							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Looking at Offer A makes me feel
-							</Paragraph>
+							<p style={{ fontSize: this.fontSize }}>
+								<strong>Looking at Offer A</strong> makes me feel
+							</p>
 						</Col>
 						<Col span={this.spanSize * 7}>
 							<Radio.Group name="A" size={'large'} defaultValue={this.state.offerAScore} onChange={this.offerAOnChange}>
@@ -142,11 +142,11 @@ export class Questionnaire extends React.Component {
 						</Col>
 					</Row>
 
-					<Row justify="end">
+					<Row justify="space-around" align="middle">
 						<Col span={this.spanSize}>
-							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Looking at Offer B makes me feel
-							</Paragraph>
+							<p style={{ fontSize: this.fontSize, }}>
+								<strong> Looking at Offer B</strong> makes me feel
+							</p>
 						</Col>
 						<Col span={this.spanSize * 7}>
 							<Radio.Group name="B" size={'large'} defaultValue={this.state.offerBScore} onChange={this.offerBOnChange}>
@@ -164,11 +164,11 @@ export class Questionnaire extends React.Component {
 					</Row>
 
 
-					<Row>
+					<Row justify="space-around" align="middle">
 						<Col span={this.spanSize}>
-							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Looking at Offer C makes me feel
-							</Paragraph>
+							<p style={{ fontSize: this.fontSize, }}>
+								<strong>Looking at Offer C</strong> makes me feel
+							</p>
 						</Col>
 						<Col span={this.spanSize * 7}>
 							<Radio.Group name="C" size={'large'} defaultValue={this.state.offerCScore} onChange={this.offerCOnChange}>
