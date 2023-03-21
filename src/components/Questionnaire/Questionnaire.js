@@ -80,18 +80,13 @@ export class Questionnaire extends React.Component {
 						</Col>
 					</Row>
 
-
-					<Row align='center'>
+					<br></br>
+					<Row align='center' className='row-title'>
 						<Col span={this.spanSize} align='center'>
 						</Col>
 						<Col span={this.spanSize} align='center'>
 							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Not Irritated<br />0
-							</Paragraph>
-						</Col>
-						<Col span={this.spanSize}>
-							<Paragraph style={{ fontSize: this.fontSize, }}>
-								<br />1
+								<strong>Not Irritated</strong><br />1
 							</Paragraph>
 						</Col>
 						<Col span={this.spanSize}>
@@ -116,7 +111,12 @@ export class Questionnaire extends React.Component {
 						</Col>
 						<Col span={this.spanSize}>
 							<Paragraph style={{ fontSize: this.fontSize, }}>
-								Irritated<br />6
+								<br />6
+							</Paragraph>
+						</Col>
+						<Col span={this.spanSize}>
+							<Paragraph style={{ fontSize: this.fontSize, }}>
+								<strong>Irritated</strong><br />7
 							</Paragraph>
 						</Col>
 					</Row>

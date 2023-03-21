@@ -31,6 +31,10 @@
     width: 100%;
 }
 
+.row-title {
+    padding-top: 20px;
+}
+
 .rich-text strong {
     /* font-size: 20; */
     font-weight: bold;
