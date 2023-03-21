@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/hye-shopping-lab/static/css/main.d1b95d24.css",
-    "main.js": "/hye-shopping-lab/static/js/main.ab73c37b.js",
+    "main.css": "/hye-shopping-lab/static/css/main.0d0eb19b.css",
+    "main.js": "/hye-shopping-lab/static/js/main.568d4cee.js",
     "static/media/product_2.jpg": "/hye-shopping-lab/static/media/product_2.6e9dc519779f295bf148.jpg",
     "static/media/product_1.jpg": "/hye-shopping-lab/static/media/product_1.09e323861dfce2f0f6ad.jpg",
     "static/media/product_0.jpg": "/hye-shopping-lab/static/media/product_0.bdaa12a0b360ed2fbdbb.jpg",
     "index.html": "/hye-shopping-lab/index.html",
-    "main.d1b95d24.css.map": "/hye-shopping-lab/static/css/main.d1b95d24.css.map",
-    "main.ab73c37b.js.map": "/hye-shopping-lab/static/js/main.ab73c37b.js.map"
+    "main.0d0eb19b.css.map": "/hye-shopping-lab/static/css/main.0d0eb19b.css.map",
+    "main.568d4cee.js.map": "/hye-shopping-lab/static/js/main.568d4cee.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1b95d24.css",
-    "static/js/main.ab73c37b.js"
+    "static/css/main.0d0eb19b.css",
+    "static/js/main.568d4cee.js"
   ]
 }
